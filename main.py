@@ -77,6 +77,15 @@ async def main():
                         data["vips"]["was_in_game"][id] = False
                 except AttributeError as e:
                     pass
+            elif was_in_game == True:
+                await cur.execute("INSERT INTO events (userid, type, timestamp) VALUES(?,?,?)", (vip.id, "leave", datetime.now().timestamp(),))
+                embed = DiscordEmbed(title=f"Sign Off | {vip.name}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has left the site.", color="00ff44")
+                embed.set_author(name="Notifier", url="https://www.youtube.com/watch?v=xvFZjo5PgG0", icon_url="https://i.imgur.com/4zm0lhQ.png")
+                embed.set_footer(text="*May be 10 seconds late")
+                embed.set_timestamp()
+                vipembeds.append((embed, False))
+                print(f"{vip.name} has left the site.")
+                data["vips"]["was_in_game"][id] = False
         await db.commit()
         for embed in vipembeds:
             ping = embed[1]
@@ -117,6 +126,15 @@ async def main():
                         data["operatives"]["was_in_game"][id] = False
                 except AttributeError as e:
                     pass
+            elif was_in_game == True:
+                await cur.execute("INSERT INTO events_operatives (userid, type, timestamp) VALUES(?,?,?)", (op.id, "leave", datetime.now().timestamp(),))
+                embed = DiscordEmbed(title=f"Sign Off | {op.name}", description=f"[{op.name}](https://www.roblox.com/users/{op.id}/profile) has left the site.", color="00ff44")
+                embed.set_author(name="Notifier", url="https://www.youtube.com/watch?v=xvFZjo5PgG0", icon_url="https://i.imgur.com/4zm0lhQ.png")
+                embed.set_footer(text="*May be 10 seconds late")
+                embed.set_timestamp()
+                opembeds.append(embed)
+                print(f"{op.name} has left the site.")
+                data["operatives"]["was_in_game"][id] = False
         await db.commit()
         for embed in opembeds:
             webhook.add_embed(embed)
