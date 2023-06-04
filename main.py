@@ -100,7 +100,7 @@ async def main():
             joined = embed[1]
             webhook.add_embed(embed[0])
         if len(vipembeds) > 0:
-            if joined == True:
+            if joined == True and False:
                 webhook.content = "<@&1092090238505070602>"
             webhook.execute(remove_embeds=True)
         opembeds = []
