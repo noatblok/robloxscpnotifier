@@ -68,7 +68,7 @@ async def main():
                     else:
                         if was_in_game == True:
                             await cur.execute("INSERT INTO events (userid, type, timestamp) VALUES(?,?,?)", (vip.id, "leave", datetime.now().timestamp(),))
-                            embed = DiscordEmbed(title=f"Sign Off | {vip.name}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has left the site.", color="00ff44")
+                            embed = DiscordEmbed(title=f"Sign Off | {vip.name}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has left the site.", color="FF0000")
                             embed.set_author(name="Notifier", url="https://www.youtube.com/watch?v=xvFZjo5PgG0", icon_url="https://i.imgur.com/4zm0lhQ.png")
                             embed.set_footer(text="*May be 10 seconds late")
                             embed.set_timestamp()
@@ -79,7 +79,7 @@ async def main():
                     pass
             elif was_in_game == True:
                 await cur.execute("INSERT INTO events (userid, type, timestamp) VALUES(?,?,?)", (vip.id, "leave", datetime.now().timestamp(),))
-                embed = DiscordEmbed(title=f"Sign Off | {vip.name}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has left the site.", color="00ff44")
+                embed = DiscordEmbed(title=f"Sign Off | {vip.name}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has left the site.", color="FF0000")
                 embed.set_author(name="Notifier", url="https://www.youtube.com/watch?v=xvFZjo5PgG0", icon_url="https://i.imgur.com/4zm0lhQ.png")
                 embed.set_footer(text="*May be 10 seconds late")
                 embed.set_timestamp()
