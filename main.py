@@ -139,7 +139,6 @@ async def main():
         for embed in opembeds:
             webhook.add_embed(embed)
         if len(opembeds) > 0:
-            webhook.content = "Don't mention this to anyone else. Coming soon:tm:"
             webhook.execute(remove_embeds=True)
         
         with open("data.json", "w") as f:
