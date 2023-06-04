@@ -85,6 +85,7 @@ async def main():
                             embed.set_footer(text="*May be 10 seconds late")
                             embed.set_timestamp()
                             vipembeds.append((embed, False))
+                            joined = False
                             print(f"{vip.name} has left the site.")
                         data["vips"]["was_in_game"][id] = False
                 except AttributeError as e:
@@ -95,6 +96,7 @@ async def main():
                 embed.set_author(name="Notifier", url="https://www.youtube.com/watch?v=xvFZjo5PgG0", icon_url="https://i.imgur.com/4zm0lhQ.png")
                 embed.set_footer(text="*May be 10 seconds late")
                 embed.set_timestamp()
+                joined = False
                 vipembeds.append((embed, False))
                 print(f"{vip.name} has left the site.")
                 data["vips"]["was_in_game"][id] = False
