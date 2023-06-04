@@ -146,9 +146,9 @@ async def main():
                 data["operatives"]["was_in_game"][id] = False
         await db.commit()
         for embed in opembeds:
-            opwebhook.add_embed(embed)
+            webhook.add_embed(embed)
         if len(opembeds) > 0:
-            opwebhook.execute(remove_embeds=True)
+            webhook.execute(remove_embeds=True)
         
         with open("data.json", "w") as f:
             json.dump(data, f, indent=4)
