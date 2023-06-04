@@ -43,7 +43,7 @@ async def main():
         for member2 in viplist:
             member = member2[0]
             print(f"VIP Name: {member.name}\nRank: {member.role.name}\n-----------")
-    print("---STARTING---")
+    print("---STARTED---")
     while True:
         with open("data.json", "r") as f:
             data = json.load(f)
