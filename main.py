@@ -63,10 +63,7 @@ async def main():
                     if presence.user_presence_type == roblox.presence.PresenceType.in_game and presence.place.id == int(placeid):
                         if was_in_game == False:
                             await cur.execute("INSERT INTO events (userid, type, timestamp) VALUES(?,?,?)", (vip.id, "join", datetime.now().timestamp(),))
-                            if int(vip.id) == 248694226:
-                                embed = DiscordEmbed(title=f"Sign On | {vipdata[1]}", description=f"[{vip.name}](https://www.youtube.com/watch?v=WTdk6XJ2tnM) has arrived on site.", color="00ff44")
-                            else:
-                                embed = DiscordEmbed(title=f"Sign On | {vipdata[1]}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has arrived on site.", color="00ff44")
+                            embed = DiscordEmbed(title=f"Sign On | {vipdata[1]}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has arrived on site.", color="00ff44")
                             embed.set_author(name="Notifier", url="https://www.youtube.com/watch?v=xvFZjo5PgG0", icon_url="https://i.imgur.com/4zm0lhQ.png")
                             embed.set_footer(text="*May be 10 seconds late")
                             embed.set_timestamp()
@@ -77,10 +74,7 @@ async def main():
                     else:
                         if was_in_game == True:
                             await cur.execute("INSERT INTO events (userid, type, timestamp) VALUES(?,?,?)", (vip.id, "leave", datetime.now().timestamp(),))
-                            if int(vip.id) == 248694226:
-                                embed = DiscordEmbed(title=f"Sign Off | {vipdata[1]}", description=f"[{vip.name}](https://www.youtube.com/watch?v=WTdk6XJ2tnM) has left the site.", color="FF0000")
-                            else:
-                                embed = DiscordEmbed(title=f"Sign Off | {vipdata[1]}", description=f"[{vip.name}](https://www.youtube.com/watch?v=WTdk6XJ2tnM) has left the site.", color="FF0000")
+                            embed = DiscordEmbed(title=f"Sign Off | {vipdata[1]}", description=f"[{vip.name}](https://www.roblox.com/users/{vip.id}/profile) has left the site.", color="FF0000")
                             embed.set_author(name="Notifier", url="https://www.youtube.com/watch?v=xvFZjo5PgG0", icon_url="https://i.imgur.com/4zm0lhQ.png")
                             embed.set_footer(text="*May be 10 seconds late")
                             embed.set_timestamp()
