@@ -10,7 +10,7 @@ debug = os.getenv("DEBUG")
 
 roleview = False
 memberview = False
-interval = 10
+interval = 30
 webhook = DiscordWebhook(rate_limit_retry=True, url=os.getenv("DEBUG_WEBHOOK_URL") if debug == True else os.getenv("WEBHOOK_URL"))
 opwebhook = DiscordWebhook(rate_limit_retry=True, url=os.getenv("DEBUG_WEBHOOK_URL") if debug == True else os.getenv("OPERATIVE_WEBHOOK_URL"))
 
