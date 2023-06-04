@@ -95,8 +95,9 @@ async def main():
                 print(f"{vip.name} has left the site.")
                 data["vips"]["was_in_game"][id] = False
         await db.commit()
+        joined = False
         for embed in vipembeds:
-            ping = embed[1]
+            joined = embed[1]
             webhook.add_embed(embed[0])
         if len(vipembeds) > 0:
             if joined == True:
